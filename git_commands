@@ -1,0 +1,4 @@
+git status		-> for checking the local changes made by you with the existing code from github
+git add <file_name>  -> for adding files to the git
+git commit -m "your proper changes made message"    to know the commti history
+git push    or git push -u origin main
