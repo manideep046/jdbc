@@ -17,6 +17,7 @@ public class DMLoperations {
 		 String password="root";
 		 Connection connection=null;
 		 Statement statement = null;
+		 ResultSet rs=null;
 		try {
 			 connection = DriverManager.getConnection(url,userName,password);
 			statement = connection.createStatement();
@@ -27,8 +28,8 @@ public class DMLoperations {
 			*/
 			
 			//selecting values from database
-		/*	String query = "Select * from nikhil";
-			ResultSet rs = statement.executeQuery(query);
+			String query = "Select * from nikhil";
+			 rs = statement.executeQuery(query);
 			
 			while(rs.next()) {
 				
@@ -37,7 +38,10 @@ public class DMLoperations {
                 int age = rs.getInt("age");	
                 System.out.println(id+" "+ name+" " + age);
                 
-              }  */
+              }  
+			
+
+			
 			/*//UPDATE 
 			String query ="update nikhil set age=21 where id =5 ;";
 			int temp=statement.executeUpdate(query);
@@ -73,7 +77,7 @@ public class DMLoperations {
 		}*/
 			
 			
-			//manideep added new line
+			
 			
 		}
 			catch (SQLException e) {
@@ -81,6 +85,28 @@ public class DMLoperations {
 			e.printStackTrace();
 			
 		}
+		
+		finally {
+			try {
+			
+			statement.close();
+			rs.close();
+			connection.close();
+			if (connection != null) {
+			    if (connection.isClosed()) {
+			        System.out.println("Connection is closed.");
+			    } else {
+			        System.out.println("Connection is still open.");
+			    }
+			}
+
+		}
+			catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		}
+	}
+		
 		
 		
 		
